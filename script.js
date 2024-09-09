@@ -45,8 +45,8 @@ myLibrary.map((item)=>{
   card.appendChild(pages)
   card.appendChild(read)
   
-  const body = document.querySelector('body')
-  body.appendChild(card)
-  
+  const container = document.querySelector('.card-container')
+  container.appendChild(card)
   })
   
+  // TO-DO: Add dialog to enter new book's data
