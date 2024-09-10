@@ -1,7 +1,6 @@
 //1- Array of objects containing the books to be displayed
-
-const myLibrary = [
-  {
+/**
+ * {
     author: "Ahmed",
     title: "Unnatural",
     pages: 103,
@@ -13,7 +12,8 @@ const myLibrary = [
     pages: 259,
     read: true,
   },
-];
+ */
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -26,40 +26,43 @@ function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(book);
 }
 
-//3 - Write a function that loops through the array and displays each book on the page. You can display them in some sort of table, or each on their own “card”. It might help for now to manually add a few books to your array so you can see the display.
-
 function displayBooks() {
-  myLibrary.map((item) => {
-    displayBook(item);
+  myLibrary.forEach((item,index) => {
+    displayBook(item, index);
   });
 }
+
 displayBooks();
-// TO-DO: Add dialog to enter new book's data
+
 const dialog = document.querySelector("dialog");
-const myForm = document.querySelector("#my-form");
+const inputForm = document.querySelector("#new-book-form");
 const newBook = document.querySelector(".new-book");
 
 newBook.addEventListener("click", () => {
   dialog.show();
 });
 
-myForm.addEventListener("submit", (event) => {
+inputForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
-  const formData = new FormData(myForm);
+  const formData = new FormData(inputForm);
   const title = formData.get("title");
   const author = formData.get("author");
   const pages = formData.get("pages");
   const read = formData.get("read");
   addBookToLibrary(title, author, pages, read);
-  displayBook();
+  displayBook(undefined,myLibrary.length-1);
   dialog.close();
 });
 
-function displayBook(item) {
+function displayBook(item, index) {
+  console.log(index);
+  index == undefined ? (index = 0) : index;
   item == undefined ? (item = myLibrary[myLibrary.length - 1]) : item;
+
   const card = document.createElement("div");
   card.classList.add("card");
+  card.setAttribute("data-index", index);
 
   const title = document.createElement("span");
   title.textContent = `Title: ${item.title}`;
@@ -73,11 +76,27 @@ function displayBook(item) {
   const read = document.createElement("span");
   read.textContent = `Read: ${item.read}`;
 
+  const removeButton = document.createElement("button");
+  removeButton.classList.add("black-button");
+  removeButton.textContent = "Remove";
+
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(pages);
   card.appendChild(read);
+  card.appendChild(removeButton);
 
   const container = document.querySelector(".card-container");
   container.appendChild(card);
+
+  console.log(card.getAttribute("data-index"));
+
+  console.log("displayBook Library:", myLibrary);
+
+  removeButton.addEventListener("click", () => {
+    myLibrary.splice(+card.getAttribute("data-index"), 1);
+    container.innerHTML = "";
+    displayBooks();
+    console.log("removeButton Library: ", myLibrary);
+  });
 }
