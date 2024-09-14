@@ -19,7 +19,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;  
+  margin-bottom: 24px;
+  
+  h1{
+    font-family: inter,sans-serif;
+  }
 }
 
 .new-book,
@@ -77,4 +81,9 @@ body {
   max-width: 90vw;
   margin: auto;
   justify-content: center;
+}
+
+.card-identifier{
+  font-family: inter,sans-serif;
+  font-weight: bold;
 }

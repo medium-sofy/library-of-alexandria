@@ -69,16 +69,16 @@ function displayBook(item, index) {
   card.setAttribute("data-index", index);
 
   const title = document.createElement("span");
-  title.textContent = `Title: ${item.title}`;
+  title.innerHTML = `<span class='card-identifier'>Title:</span> ${item.title}`;
 
   const author = document.createElement("span");
-  author.textContent = `Author: ${item.author}`;
+  author.innerHTML = `<span class='card-identifier'>Author:</span> ${item.author}`;
 
   const pages = document.createElement("span");
-  pages.textContent = `No. of pages: ${item.pages}`;
+  pages.innerHTML = `<span class='card-identifier'>No. of pages:</span> ${item.pages}`;
 
   const read = document.createElement("span");
-  read.textContent = `Read: ${item.read}`;
+  read.innerHTML = `<span class='card-identifier'>Read:</span> ${item.read}`;
 
   const removeButton = document.createElement("button");
   removeButton.classList.add("black-button");
