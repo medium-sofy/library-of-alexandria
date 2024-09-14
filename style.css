@@ -7,9 +7,11 @@
   font-family: geist-mono;
   src: url(fonts/GeistMonoVF.woff2);
 }
+
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: "geist-mono", sans-serif;
   background-color: aliceblue;
@@ -20,9 +22,11 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 24px;
-  
-  h1{
-    font-family: inter,sans-serif;
+  max-width: fit-content;
+  margin: auto;
+
+  h1 {
+    font-family: inter, sans-serif;
   }
 }
 
@@ -63,6 +67,7 @@ body {
     width: 200px;
   }
 }
+
 .button-container {
   display: flex;
   justify-content: center;
@@ -74,7 +79,7 @@ body {
   }
 }
 
-.card-container{
+.card-container {
   display: flex;
   gap: 24px;
   flex-wrap: wrap;
@@ -83,7 +88,28 @@ body {
   justify-content: center;
 }
 
-.card-identifier{
-  font-family: inter,sans-serif;
+.card-identifier {
+  font-family: inter, sans-serif;
   font-weight: bold;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  max-width: fit-content;
+  margin: auto;
+  margin-bottom: 30px;
+
+  .top-section {
+    height: 40px;
+    margin-top: 20px;
+  }
+
+  .top-section > h1 {
+    margin-right: 14px;
+  }
+
+  .medium {
+    color: black;
+  }
 }
