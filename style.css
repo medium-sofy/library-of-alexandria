@@ -7,7 +7,9 @@
   font-family: geist-mono;
   src: url(fonts/GeistMonoVF.woff2);
 }
-
+* {
+  box-sizing: border-box;
+}
 body {
   font-family: "geist-mono", sans-serif;
   background-color: aliceblue;
@@ -34,18 +36,25 @@ body {
 .card {
   background-color: white;
   width: 200px;
-  height: 100px;
+  min-height: 150px;
   border: 2px solid rgb(0, 0, 0);
   box-shadow: 0px 0px 5px grey;
   margin-bottom: 20px;
   padding: 12px;
   display: flex;
   flex-direction: column;
+
+  span {
+    margin-top: 10px;
+  }
 }
 
 .new-book-dialog {
-  max-width: 200px;
-  > form > button {
+  max-width: 240px;
+  padding: 16px;
+  border: 3px solid black;
+  #pages {
+    width: 200px;
   }
 }
 .button-container {

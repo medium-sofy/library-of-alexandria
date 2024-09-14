@@ -22,11 +22,11 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 function addBookToLibrary(title, author, pages, read) {
-  myLibrary.push(new Book(title, author, pages, read))
+  myLibrary.push(new Book(title, author, pages, read));
 }
 
 function displayBooks() {
-  myLibrary.forEach((item,index) => {
+  myLibrary.forEach((item, index) => {
     displayBook(item, index);
   });
 }
@@ -43,14 +43,14 @@ newBook.addEventListener("click", () => {
 
 inputForm.addEventListener("submit", (event) => {
   event.preventDefault();
-
+  // Change input form widgets for no. of pages to be number based & read status to be radio buttons
   const formData = new FormData(inputForm);
   const title = formData.get("title");
   const author = formData.get("author");
   const pages = formData.get("pages");
   const read = formData.get("read");
   addBookToLibrary(title, author, pages, read);
-  displayBook(undefined,myLibrary.length-1);
+  displayBook(undefined, myLibrary.length - 1);
   dialog.close();
 });
 
@@ -79,12 +79,24 @@ function displayBook(item, index) {
   removeButton.classList.add("black-button");
   removeButton.textContent = "Remove";
 
+  const readButton = document.createElement("button");
+  readButton.classList.add('black-button')
+  readButton.textContent = 'Read'
+
+  const buttonContainer = document.createElement('div')
+  buttonContainer.classList.add('button-container')
+
+  // should change this later to dynamicly change the wording depending on the read status of the book: "Read" , "Didn't read"
+
   card.appendChild(title);
   card.appendChild(author);
   card.appendChild(pages);
   card.appendChild(read);
-  card.appendChild(removeButton);
 
+  buttonContainer.appendChild(removeButton)
+  buttonContainer.appendChild(readButton)
+ 
+  card.appendChild(buttonContainer)
   const container = document.querySelector(".card-container");
   container.appendChild(card);
 
