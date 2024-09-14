@@ -22,8 +22,7 @@ function Book(title, author, pages, read) {
   this.read = read;
 }
 function addBookToLibrary(title, author, pages, read) {
-  const book = new Book(title, author, pages, read);
-  myLibrary.push(book);
+  myLibrary.push(new Book(title, author, pages, read))
 }
 
 function displayBooks() {
@@ -100,3 +99,5 @@ function displayBook(item, index) {
     console.log("removeButton Library: ", myLibrary);
   });
 }
+
+// TO-DO : Add button to each card to change the book read status: add a method on the book proto to toggle the read status of each object, add an event listener to run this method against each card
