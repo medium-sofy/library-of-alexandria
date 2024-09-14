@@ -94,7 +94,7 @@ function displayBook(item, index) {
 
   removeButton.addEventListener("click", () => {
     myLibrary.splice(+card.getAttribute("data-index"), 1);
-    container.innerHTML = "";
+    container.textContent = "";
     displayBooks();
     console.log("removeButton Library: ", myLibrary);
   });
