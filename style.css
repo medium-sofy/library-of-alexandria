@@ -18,6 +18,8 @@ body {
 .top-section {
   display: flex;
   align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;  
 }
 
 .new-book,
@@ -66,4 +68,13 @@ body {
   > button {
     margin-top: 20px;
   }
+}
+
+.card-container{
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  max-width: 90vw;
+  margin: auto;
+  justify-content: center;
 }
