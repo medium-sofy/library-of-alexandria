@@ -21,6 +21,11 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
+
+Book.prototype.toggleRead = function(){
+  this.read === "Yes" ? this.read = "No" : this.read = "Yes"
+}
+
 function addBookToLibrary(title, author, pages, read) {
   myLibrary.push(new Book(title, author, pages, read));
 }
@@ -110,6 +115,11 @@ function displayBook(item, index) {
     displayBooks();
     console.log("removeButton Library: ", myLibrary);
   });
-}
 
-// TO-DO : Add button to each card to change the book read status: add a method on the book proto to toggle the read status of each object, add an event listener to run this method against each card
+  readButton.addEventListener('click',()=>{
+    const book = myLibrary[card.getAttribute('data-index')]
+    book.toggleRead()
+    container.textContent = "";
+    displayBooks()
+  })
+}
