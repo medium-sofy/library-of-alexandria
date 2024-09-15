@@ -85,7 +85,7 @@ body {
   flex-wrap: wrap;
   max-width: 90vw;
   margin: auto;
-  justify-content: center;
+  justify-content: start;
 }
 
 .card-identifier {
